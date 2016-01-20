@@ -1,0 +1,21 @@
+{
+  "name": "brett_ui",
+  "authors": [
+    "Brett Namba <brettinbox@gmail.com> (http://www.brettnamba.com)"
+  ],
+  "description": "Collection of front-end web UI components",
+  "main": "",
+  "moduleType": [],
+  "license": "",
+  "homepage": "https://github.com/bretten",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": ">=1.11.0 <=1.12.0"
+  }
+}

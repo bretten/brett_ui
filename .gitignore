@@ -1,0 +1,7 @@
+# User specific & automatically generated files #
+#################################################
+/bower_components
+
+# IDE generated files #
+#######################
+.idea/
