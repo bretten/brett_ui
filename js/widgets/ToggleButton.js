@@ -1,17 +1,26 @@
 /**
  * Models a ToggleButton that changes states and sends HTTP requests on state changes
  *
+ * @param element The HTML element that the ToggleButton will be associated with
  * @param uri The URI that the request should be sent to
  * @param serverState The initial state of the toggle
  * @param parameterName The name of the HTTP request parameter that will carry the state of the ToggleButton
  * @constructor
  * @author Brett Namba (https://github.com/bretten)
  */
-var ToggleButton = function (uri, serverState, parameterName) {
+var ToggleButton = function (element, uri, serverState, parameterName) {
+    this.element = element;
     this.uri = uri;
     this.serverState = this.selectedState = serverState;
     this.parameterName = parameterName;
 };
+
+/**
+ * The HTML element that this ToggleButton is associated to
+ *
+ * @type {HTMLElement|null}
+ */
+ToggleButton.prototype.element = null;
 
 /**
  * The URI that all HTTP requests will be directed at
