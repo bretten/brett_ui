@@ -63,6 +63,23 @@ GoogleMap.prototype.markerIcons = {
 GoogleMap.prototype.userMarker = null;
 
 /**
+ * The animation to use when animating the user Marker
+ *
+ * @type {google.maps.Animation}
+ */
+GoogleMap.prototype.userMarkerAnimation = google.maps.Animation.DROP;
+
+/**
+ * The default MarkerOptions for the user Marker
+ *
+ * @type {object}
+ */
+GoogleMap.prototype.userMarkerOptions = {
+    draggable: false,
+    animation: google.maps.Animation.DROP
+};
+
+/**
  * The Circle that surrounds the user's position
  *
  * @type {google.maps.Circle|null}
@@ -258,18 +275,12 @@ GoogleMap.prototype.setUserMarker = function (lat, lng) {
         return;
     }
 
-    if (this.userMarker != null && this.userMarker instanceof google.maps.Marker) {
-        this.userMarker.setMap(this.map);
-        this.userMarker.setAnimation(google.maps.Animation.DROP);
-        this.userMarker.setPosition({lat: lat, lng: lng});
-    } else {
-        this.userMarker = new google.maps.Marker({
-            map: this.map,
-            draggable: false,
-            animation: google.maps.Animation.DROP,
-            position: {lat: lat, lng: lng}
-        });
+    if (this.userMarker == null || !(this.userMarker instanceof google.maps.Marker)) {
+        this.userMarker = new google.maps.Marker(this.userMarkerOptions);
     }
+    this.userMarker.setMap(this.map);
+    this.userMarker.setAnimation(google.maps.Animation.DROP);
+    this.userMarker.setPosition({lat: lat, lng: lng});
 };
 
 /**
